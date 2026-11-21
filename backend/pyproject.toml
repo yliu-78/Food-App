@@ -1,0 +1,19 @@
+[project]
+name = "food-app-backend"
+version = "0.1.0"
+description = "FastAPI + ADK backend for the Food App"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.9",
+    "fastapi[standard]>=0.135",  # 0.135 adds native SSE (fastapi.sse); [standard] adds uvicorn + the `fastapi dev` CLI
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "httpx>=0.27",  # needed by FastAPI's TestClient
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
